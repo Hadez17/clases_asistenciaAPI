@@ -21,7 +21,7 @@ namespace clases_asistenciaAPI.DTOs
 
     public class EstudianteRequest
     {
-        public int EstudianteId { get; set; }
+        //public int EstudianteId { get; set; }
 
         public string EstudianteNombre { get; set; } = null!;
 

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace clases_asistenciaAPI.Models;
 
-public partial class Estudiante
+public partial class Estudiantes
 {
     public int EstudianteId { get; set; }
 

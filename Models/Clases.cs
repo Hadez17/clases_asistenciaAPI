@@ -17,7 +17,7 @@ public partial class Clases
 
     public virtual ICollection<Asistencia> Asistencia { get; set; } = new List<Asistencia>();
 
-    public virtual ICollection<Estudiante> Estudiantes { get; set; } = new List<Estudiante>();
+    public virtual ICollection<Estudiantes> Estudiantes { get; set; } = new List<Estudiantes>();
 
     public virtual ICollection<ReportesAsistencium> ReportesAsistencia { get; set; } = new List<ReportesAsistencium>();
 

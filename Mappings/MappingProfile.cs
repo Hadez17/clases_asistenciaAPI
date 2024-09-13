@@ -11,14 +11,14 @@ namespace clases_asistenciaAPI.Mappings
             //Modelo - > DTO
             CreateMap<Asistencia, AsistenciumResponse>();
             CreateMap<Clases, ClaseResponse>();
-            CreateMap<Estudiante, EstudianteResponse>();
+            CreateMap<Estudiantes, EstudianteResponse>();
             CreateMap<ReportesAsistencium, ReportesAsistenciumResponse>();
             CreateMap<Usuario, UsuarioResponse>();
 
             //DTO - > Modelo
             CreateMap<AsistenciumRequest, Asistencia>();
             CreateMap<ClaseRequest, Clases>();
-            CreateMap<EstudianteRequest, Estudiante>();
+            CreateMap<EstudianteRequest, Estudiantes>();
             CreateMap<ReportesAsistenciumRequest, ReportesAsistencium>();
             CreateMap<UsuarioRequest, Usuario>();
 

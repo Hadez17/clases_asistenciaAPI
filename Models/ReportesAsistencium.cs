@@ -21,5 +21,5 @@ public partial class ReportesAsistencium
 
     public virtual Clases Clase { get; set; } = null!;
 
-    public virtual Estudiante Estudiante { get; set; } = null!;
+    public virtual Estudiantes Estudiante { get; set; } = null!;
 }
