@@ -25,7 +25,7 @@ namespace clases_asistenciaAPI.DTOs
 
     public class ReportesAsistenciumRequest
     {
-        public int ReporteId { get; set; }
+        //public int ReporteId { get; set; }
 
         public int EstudianteId { get; set; }
 

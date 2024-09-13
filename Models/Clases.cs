@@ -19,7 +19,7 @@ public partial class Clases
 
     public virtual ICollection<Estudiantes> Estudiantes { get; set; } = new List<Estudiantes>();
 
-    public virtual ICollection<ReportesAsistencium> ReportesAsistencia { get; set; } = new List<ReportesAsistencium>();
+    public virtual ICollection<ReportesAsistencia> ReportesAsistencia { get; set; } = new List<ReportesAsistencia>();
 
     public virtual Usuario? Usuario { get; set; }
 }
