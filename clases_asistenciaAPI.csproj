@@ -20,7 +20,6 @@
 
   <ItemGroup>
     <Folder Include="Endpoints\" />
-    <Folder Include="Services\Clase\" />
     <Folder Include="Services\Estudiante\" />
     <Folder Include="Services\Usuario\" />
     <Folder Include="Services\ReportesAsistencium\" />

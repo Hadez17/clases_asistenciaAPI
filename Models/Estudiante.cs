@@ -15,7 +15,7 @@ public partial class Estudiante
 
     public virtual ICollection<Asistencia> Asistencia { get; set; } = new List<Asistencia>();
 
-    public virtual Clase Clase { get; set; } = null!;
+    public virtual Clases Clase { get; set; } = null!;
 
     public virtual ICollection<ReportesAsistencium> ReportesAsistencia { get; set; } = new List<ReportesAsistencium>();
 }
