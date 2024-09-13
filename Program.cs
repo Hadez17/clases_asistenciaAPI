@@ -1,3 +1,4 @@
+using clases_asistenciaAPI.DTOs;
 using clases_asistenciaAPI.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
@@ -26,29 +27,25 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-var summaries = new[]
-{
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
+app.MapGet("/api/clases/", () => {
+    return "Lista de clases";
+});
 
-app.MapGet("/weatherforecast", () =>
-{
-    var forecast = Enumerable.Range(1, 5).Select(index =>
-        new WeatherForecast
-        (
-            DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            Random.Shared.Next(-20, 55),
-            summaries[Random.Shared.Next(summaries.Length)]
-        ))
-        .ToArray();
-    return forecast;
-})
-.WithName("GetWeatherForecast")
-.WithOpenApi();
+app.MapGet("/api/clases/{id}", (int id) => {
+    return $"Buscando clase con id: {id}";
+});
+
+app.MapPost("/api/clases/", (ClaseRequest clase) => {
+    return $"Guardando clase con claseId: {clase.UsuarioId}";
+});
+
+app.MapPut("/api/clases/{id}", (int id, ClaseRequest clase) => {
+    return $"Modificando clase con id: {id}";
+});
+
+app.MapDelete("/api/clases/{id}", (int id) => {
+    return $"Eliminando clase con id: {id}";
+});
 
 app.Run();
 
-internal record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}
