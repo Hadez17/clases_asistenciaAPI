@@ -19,7 +19,7 @@ public partial class ClasesAsistenciaDbContext : DbContext
 
     public virtual DbSet<Clase> Clases { get; set; }
 
-    public virtual DbSet<Estudiante> Estudiantes { get; set; }
+    public virtual DbSet<Estudiantes> Estudiantes { get; set; }
 
     public virtual DbSet<ReportesAsistencium> ReportesAsistencia { get; set; }
 
@@ -84,7 +84,7 @@ public partial class ClasesAsistenciaDbContext : DbContext
                 .HasConstraintName("FK__clases__usuario___4D94879B");
         });
 
-        modelBuilder.Entity<Estudiante>(entity =>
+        modelBuilder.Entity<Estudiantes>(entity =>
         {
             entity.HasKey(e => e.EstudianteId).HasName("PK__estudian__A2390029832F55AD");
 
