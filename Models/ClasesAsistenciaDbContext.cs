@@ -17,7 +17,7 @@ public partial class ClasesAsistenciaDbContext : DbContext
 
     public virtual DbSet<Asistencia> Asistencia { get; set; }
 
-    public virtual DbSet<Clase> Clases { get; set; }
+    public virtual DbSet<Clases> Clases { get; set; }
 
     public virtual DbSet<Estudiante> Estudiantes { get; set; }
 
@@ -57,7 +57,7 @@ public partial class ClasesAsistenciaDbContext : DbContext
                 .HasConstraintName("FK__asistenci__estud__5441852A");
         });
 
-        modelBuilder.Entity<Clase>(entity =>
+        modelBuilder.Entity<Clases>(entity =>
         {
             entity.HasKey(e => e.ClaseId).HasName("PK__clases__E6D3E3528BD56FDE");
 

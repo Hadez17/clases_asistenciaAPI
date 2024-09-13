@@ -13,5 +13,5 @@ public partial class Usuario
 
     public string UsuarioRol { get; set; } = null!;
 
-    public virtual ICollection<Clase> Clases { get; set; } = new List<Clase>();
+    public virtual ICollection<Clases> Clases { get; set; } = new List<Clases>();
 }
