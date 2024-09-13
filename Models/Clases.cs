@@ -21,5 +21,5 @@ public partial class Clases
 
     public virtual ICollection<ReportesAsistencia> ReportesAsistencia { get; set; } = new List<ReportesAsistencia>();
 
-    public virtual Usuario? Usuario { get; set; }
+    public virtual Usuarios? Usuario { get; set; }
 }

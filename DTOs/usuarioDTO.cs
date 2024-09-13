@@ -13,7 +13,7 @@
 
     public class UsuarioRequest
     {
-        public int UsuarioId { get; set; }
+        //public int UsuarioId { get; set; }
 
         public string UsuarioNombre { get; set; } = null!;
 
