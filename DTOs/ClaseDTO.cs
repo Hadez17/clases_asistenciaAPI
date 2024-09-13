@@ -18,7 +18,7 @@ namespace clases_asistenciaAPI.DTOs
 
         public virtual ICollection<Estudiantes> Estudiantes { get; set; } = new List<Estudiantes>();
 
-        public virtual ICollection<ReportesAsistencium> ReportesAsistencia { get; set; } = new List<ReportesAsistencium>();
+        public virtual ICollection<ReportesAsistencia> ReportesAsistencia { get; set; } = new List<ReportesAsistencia>();
 
         public virtual UsuarioResponse Usuario { get; set; }
     }
@@ -39,6 +39,6 @@ namespace clases_asistenciaAPI.DTOs
 
         public virtual ICollection<Estudiantes> Estudiantes { get; set; } = new List<Estudiantes>();
 
-        public virtual ICollection<ReportesAsistencium> ReportesAsistencia { get; set; } = new List<ReportesAsistencium>();
+        public virtual ICollection<ReportesAsistencia> ReportesAsistencia { get; set; } = new List<ReportesAsistencia>();
     }
 }

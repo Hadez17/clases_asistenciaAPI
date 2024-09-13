@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace clases_asistenciaAPI.Models;
 
-public partial class ReportesAsistencium
+public partial class ReportesAsistencia
 {
     public int ReporteId { get; set; }
 
