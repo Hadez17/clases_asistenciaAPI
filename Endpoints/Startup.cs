@@ -7,6 +7,7 @@
             EstudianteEndpoints.Add(app);
             AsistenciumEndpoints.Add(app);
             ReportesAsistenciumEndpoints.Add(app);
+            UsuarioEndpoints.Add(app);
         }
     }
 }
