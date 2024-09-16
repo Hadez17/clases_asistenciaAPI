@@ -47,8 +47,8 @@ namespace clases_asistenciaAPI.Services.Clase
         {
             var claseRequest = _mapper.Map<ClaseRequest, Clases>(clase);
             await _db.Clases.AddAsync(claseRequest);
-
-            return await _db.SaveChangesAsync();
+            await _db.SaveChangesAsync();
+            return claseRequest.ClaseId;
         }
 
         public async Task<int> PutClase(int claseId, ClaseRequest clase)

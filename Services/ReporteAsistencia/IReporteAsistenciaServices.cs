@@ -9,5 +9,7 @@ namespace clases_asistenciaAPI.Services.ReportesAsistencium
         Task<ReportesAsistenciumResponse> GetReportesAsistencium(int ReporteId);
         Task<int> PutReportesAsistencium(int ReporteId, ReportesAsistenciumRequest reportesAsistencium);
         Task<int> DeleteReportesAsistencium(int ReporteId);
+        Task<object?> GetReporteAsistencia(int id);
+        Task<object?> GetReportesAsistencium();
     }
 }
