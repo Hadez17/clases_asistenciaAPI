@@ -17,7 +17,7 @@ namespace clases_asistenciaAPI.Services.Asistencium
             _mapper = mapper;
         }
 
-        public object Asistencia { get; private set; }
+        //public object Asistencia { get; private set; }
 
         public async Task<int> DeleteAsistencium(int asistenciaId)
         {
@@ -50,8 +50,8 @@ namespace clases_asistenciaAPI.Services.Asistencium
         {
             var asistenciumRequest = _mapper.Map<AsistenciumRequest, Asistencia>(asistencium);
             await _db.Asistencia.AddAsync(asistenciumRequest);
-
-            return await _db.SaveChangesAsync();
+            await _db.SaveChangesAsync();
+            return asistenciumRequest.AsistenciaId;
         }  
 
         public async Task<int> PutAsistencium(int asistenciaId, AsistenciumRequest asistencium)

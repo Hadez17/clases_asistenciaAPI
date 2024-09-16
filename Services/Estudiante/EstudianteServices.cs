@@ -46,8 +46,8 @@ namespace clases_asistenciaAPI.Services.Estudiante
         {
             var estudianteRequest = _mapper.Map<EstudianteRequest, Estudiantes>(estudiante);
             await _db.Estudiantes.AddAsync(estudianteRequest);
-
-            return await _db.SaveChangesAsync();
+            await _db.SaveChangesAsync();
+            return estudianteRequest.EstudianteId;
         }
 
         public async Task<int> PutEstudiante(int estudianteId, EstudianteRequest estudiante)

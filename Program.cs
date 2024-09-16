@@ -1,5 +1,11 @@
 using clases_asistenciaAPI.DTOs;
+using clases_asistenciaAPI.Endpoints;
 using clases_asistenciaAPI.Models;
+using clases_asistenciaAPI.Services.Asistencium;
+using clases_asistenciaAPI.Services.Clase;
+using clases_asistenciaAPI.Services.Estudiante;
+using clases_asistenciaAPI.Services.ReportesAsistencium;
+using clases_asistenciaAPI.Services.Usuario;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
@@ -15,6 +21,19 @@ builder.Services.AddDbContext<ClasesAsistenciaDbContext>(
     );
 
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
+// Registro de sevicio para Clase
+builder.Services.AddScoped<IClaseServices, ClaseServices>();
+builder.Services.AddScoped<IUsuarioServices, UsuarioServices>();
+// Registro de sevicio para Estudiante
+builder.Services.AddScoped<IEstudianteServices, EstudianteServices>();
+builder.Services.AddScoped<IEstudianteServices, EstudianteServices>();
+// Registro de sevicio para Asistencia
+builder.Services.AddScoped<IAsistenciumServices, AsistenciumServices>();
+builder.Services.AddScoped<IAsistenciumServices, AsistenciumServices>();
+// Registro de sevicio para Reporte de Asistencia
+builder.Services.AddScoped<IReportesAsistenciumServices, ReportesAsistenciumServices>();
+builder.Services.AddScoped<IReportesAsistenciumServices, ReportesAsistenciumServices>();
+
 
 var app = builder.Build();
 
@@ -27,25 +46,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.MapGet("/api/clases/", () => {
-    return "Lista de clases";
-});
-
-app.MapGet("/api/clases/{id}", (int id) => {
-    return $"Buscando clase con id: {id}";
-});
-
-app.MapPost("/api/clases/", (ClaseRequest clase) => {
-    return $"Guardando clase con claseId: {clase.UsuarioId}";
-});
-
-app.MapPut("/api/clases/{id}", (int id, ClaseRequest clase) => {
-    return $"Modificando clase con id: {id}";
-});
-
-app.MapDelete("/api/clases/{id}", (int id) => {
-    return $"Eliminando clase con id: {id}";
-});
+app.UseEndpoints();
 
 app.Run();
 
