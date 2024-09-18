@@ -8,7 +8,7 @@ namespace clases_asistenciaAPI.Endpoints
     {
         public static void Add(this IEndpointRouteBuilder routes)
         {
-            var group = routes.MapGroup("/Api/Asistencium").WithTags("Asistencium");
+            var group = routes.MapGroup("/Api/Asistencia").WithTags("Asistencia");
 
             group.MapGet("/", async (IAsistenciumServices asistenciumServices) => {
                 var Asistencium = await asistenciumServices.GetAsistencium();
@@ -19,7 +19,7 @@ namespace clases_asistenciaAPI.Endpoints
             {
                 Summary = "Obtener Asistencia",
                 Description = "Muestra una lista de todas las asistencias"
-            });
+            }).RequireAuthorization();
 
             group.MapGet("/{id}", async (int id, IAsistenciumServices asistenciumServices) =>
             {
@@ -32,7 +32,7 @@ namespace clases_asistenciaAPI.Endpoints
             {
                 Summary = "Obtener Asistencia",
                 Description = "Busca una asistencia por id"
-            });
+            }).RequireAuthorization();
 
             group.MapPost("/", async (AsistenciumRequest asistencia, IAsistenciumServices asistenciumServices) =>
             {
@@ -45,7 +45,7 @@ namespace clases_asistenciaAPI.Endpoints
             {
                 Summary = "Crear Asistencia",
                 Description = "Crear una nueva asistencia"
-            });
+            }).RequireAuthorization();
 
             group.MapPut("/{id}", async (int id, AsistenciumRequest Asistencium, IAsistenciumServices asistenciumServices) =>
             {
@@ -59,7 +59,7 @@ namespace clases_asistenciaAPI.Endpoints
             {
                 Summary = "Modificar Asistencia",
                 Description = "Actualiza una asistencia existente"
-            });
+            }).RequireAuthorization();
 
             group.MapDelete("/{id}", async (int id, IAsistenciumServices asistenciumServices) =>
             {
@@ -72,7 +72,7 @@ namespace clases_asistenciaAPI.Endpoints
             {
                 Summary = "Eliminar Asistencia",
                 Description = "Eliminar una asistencia existente"
-            });
+            }).RequireAuthorization();
 
         }
     }
