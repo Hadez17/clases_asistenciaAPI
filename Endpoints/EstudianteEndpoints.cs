@@ -19,9 +19,9 @@ namespace clases_asistenciaAPI.Endpoints
                 {
                     Summary = "Obtener Estudiante",
                     Description = "Muestra una lista de todas los estudiantes"
-                });
+                }).RequireAuthorization();
 
-                group.MapGet("/{id}", async (int id, IEstudianteServices estudianteServices) =>
+            group.MapGet("/{id}", async (int id, IEstudianteServices estudianteServices) =>
                 {
                     var estudiante = await estudianteServices.GetEstudiante(id);
                     if (estudiante == null)
@@ -32,9 +32,9 @@ namespace clases_asistenciaAPI.Endpoints
                 {
                     Summary = "Obtener Estudiante",
                     Description = "Busca un estudiante por id"
-                });
+                }).RequireAuthorization();
 
-                group.MapPost("/", async (EstudianteRequest estudiante, IEstudianteServices estudianteServices) =>
+            group.MapPost("/", async (EstudianteRequest estudiante, IEstudianteServices estudianteServices) =>
                 {
                     if (estudiante == null)
                         return Results.BadRequest(); //400 BadRequest: La solicitud no se pudo procesar, error de formato
@@ -45,9 +45,9 @@ namespace clases_asistenciaAPI.Endpoints
                 {
                     Summary = "Crear Estudiante",
                     Description = "Crear un nuevo estudiante"
-                });
+                }).RequireAuthorization();
 
-                group.MapPut("/{id}", async (int id, EstudianteRequest estudiante, IEstudianteServices estudianteServices) =>
+            group.MapPut("/{id}", async (int id, EstudianteRequest estudiante, IEstudianteServices estudianteServices) =>
                 {
 
                     var result = await estudianteServices.PutEstudiante(id, estudiante);
@@ -59,9 +59,9 @@ namespace clases_asistenciaAPI.Endpoints
                 {
                     Summary = "Modificar Estudiante",
                     Description = "Actualiza un estudiante existente"
-                });
+                }).RequireAuthorization();
 
-                group.MapDelete("/{id}", async (int id, IEstudianteServices estudianteServices) =>
+            group.MapDelete("/{id}", async (int id, IEstudianteServices estudianteServices) =>
                 {
                     var result = await estudianteServices.DeleteEstudiante(id);
                     if (result == -1)
@@ -72,8 +72,8 @@ namespace clases_asistenciaAPI.Endpoints
                 {
                     Summary = "Eliminar Estudiante",
                     Description = "Eliminar un estudiante existente"
-                });
+                }).RequireAuthorization();
 
-            }
+        }
     }
 }
