@@ -1,7 +1,12 @@
 ﻿using clases_asistenciaAPI.DTOs;
+using clases_asistenciaAPI.Models;
 using clases_asistenciaAPI.Services.Clase;
 using clases_asistenciaAPI.Services.Usuario;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
 
 namespace clases_asistenciaAPI.Endpoints
 {
@@ -73,6 +78,52 @@ namespace clases_asistenciaAPI.Endpoints
             {
                 Summary = "Eliminar Usuario",
                 Description = "Eliminar un usuario existente"
+            });
+
+            group.MapPost("/login", async (UsuarioRequest usuario, IUsuarioServices usuarioServices, IConfiguration config) => {
+
+                var login = await usuarioServices.Login(usuario);
+
+                if(login is null)
+                    return Results.Unauthorized(); //Retorna el estado 401: Unauthorized
+                else
+                {
+                    var jwtSettings = config.GetSection("JwtSetting");  
+                    var secretKey = jwtSettings.GetValue<string>("SecretKey");
+                    var issuer = jwtSettings.GetValue<string>("Issuer");
+                    var audience = jwtSettings.GetValue<string>("Audience");
+
+                    var tokenHandler = new JwtSecurityTokenHandler();
+                    var key = Encoding.UTF8.GetBytes(secretKey);
+
+                    var tokenDescriptor = new SecurityTokenDescriptor
+                    {
+
+                        Subject = new ClaimsIdentity(new[]
+                        {
+                            new Claim(ClaimTypes.Name, usuario.UsuarioNombre),
+                            new Claim(ClaimTypes.Role, usuario.UsuarioRol)
+                        }),
+                        Expires = DateTime.UtcNow.AddHours(1),
+                        Issuer = issuer,
+                        Audience = audience,
+                        SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), 
+                        SecurityAlgorithms.HmacSha256Signature)
+                    };
+
+                    //Crear token, usando parametros definidos
+                    var token = tokenHandler.CreateToken(tokenDescriptor);
+                    //Convertir el token a una cadena
+                    var jwt = tokenHandler.WriteToken(token);
+
+                    return Results.Ok(jwt);
+
+                }
+
+            }).WithOpenApi(O => new OpenApiOperation(O)
+            {
+                Summary = "Login Usuario",
+                Description = "Generar token para inicio de sesión."
             });
         }
     }
