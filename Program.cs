@@ -8,6 +8,9 @@ using clases_asistenciaAPI.Services.ReportesAsistencium;
 using clases_asistenciaAPI.Services.Usuario;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -34,6 +37,34 @@ builder.Services.AddScoped<IAsistenciumServices, AsistenciumServices>();
 builder.Services.AddScoped<IReportesAsistenciumServices, ReportesAsistenciumServices>();
 builder.Services.AddScoped<IReportesAsistenciumServices, ReportesAsistenciumServices>();
 
+var jwtSettings = builder.Configuration.GetSection("JwtSetting");
+var secretKey = jwtSettings.GetValue<string>("SecretKey");
+
+builder.Services.AddAuthorization();
+builder.Services.AddAuthentication(
+options =>
+{
+    //Esquema por defecto
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+}).AddJwtBearer(
+    options =>
+    {
+        //Permite usar HTTP en lugar de HTTPS 
+        options.RequireHttpsMetadata = false;
+        //Guardar token en el contexto de autenticación
+        options.SaveToken = true;
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = true,
+            ValidateAudience = true,
+            ValidateIssuerSigningKey = true,
+            ValidIssuer = jwtSettings.GetValue<string>("Issuer"),
+            ValidAudience = jwtSettings.GetValue<string>("Audience"),
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey))
+        };
+    }
+    );
 
 var app = builder.Build();
 
@@ -45,6 +76,9 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseAuthentication();
+app.UseAuthorization();
 
 app.UseEndpoints();
 
