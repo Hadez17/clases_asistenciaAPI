@@ -29,8 +29,8 @@ namespace clases_asistenciaAPI.DTOs
 
         public int ClaseId { get; set; }
 
-        public virtual ICollection<Asistencia> Asistencia { get; set; } = new List<Asistencia>();
+        //public virtual ICollection<Asistencia> Asistencia { get; set; } = new List<Asistencia>();
 
-        public virtual ICollection<ReportesAsistencia> ReportesAsistencia { get; set; } = new List<ReportesAsistencia>();
+        //public virtual ICollection<ReportesAsistencia> ReportesAsistencia { get; set; } = new List<ReportesAsistencia>();
     }
 }

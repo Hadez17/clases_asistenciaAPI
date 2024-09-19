@@ -35,10 +35,10 @@ namespace clases_asistenciaAPI.DTOs
 
         public int? UsuarioId { get; set; }
 
-        public virtual ICollection<Asistencia> Asistencia { get; set; } = new List<Asistencia>();
+        //public virtual ICollection<Asistencia> Asistencia { get; set; } = new List<Asistencia>();
 
-        public virtual ICollection<Estudiantes> Estudiantes { get; set; } = new List<Estudiantes>();
+        //public virtual ICollection<Estudiantes> Estudiantes { get; set; } = new List<Estudiantes>();
 
-        public virtual ICollection<ReportesAsistencia> ReportesAsistencia { get; set; } = new List<ReportesAsistencia>();
+        //public virtual ICollection<ReportesAsistencia> ReportesAsistencia { get; set; } = new List<ReportesAsistencia>();
     }
 }
