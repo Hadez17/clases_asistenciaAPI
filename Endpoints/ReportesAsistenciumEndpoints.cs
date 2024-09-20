@@ -11,7 +11,7 @@ namespace clases_asistenciaAPI.Endpoints
             var group = routes.MapGroup("/Api/ReportesAsistencia").WithTags("ReportesAsistencia");
 
             group.MapGet("/", async (IReportesAsistenciumServices reportesasistenciumServices) => {
-                var ReportesAsistencium = await reportesasistenciumServices.GetReportesAsistencium();
+                var ReportesAsistencium = await reportesasistenciumServices.GetReportesAsistencia();
                 //200 Ok: La solicitud se realizo correctamente 
                 //Y devuelve la lista de clases
                 return Results.Ok(ReportesAsistencium);
