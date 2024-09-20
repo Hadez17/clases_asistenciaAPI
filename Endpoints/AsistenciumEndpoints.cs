@@ -19,7 +19,7 @@ namespace clases_asistenciaAPI.Endpoints
             {
                 Summary = "Obtener Asistencia",
                 Description = "Muestra una lista de todas las asistencias"
-            }).RequireAuthorization();
+            });/*.RequireAuthorization();*/
 
             group.MapGet("/{id}", async (int id, IAsistenciumServices asistenciumServices) =>
             {
@@ -32,7 +32,7 @@ namespace clases_asistenciaAPI.Endpoints
             {
                 Summary = "Obtener Asistencia",
                 Description = "Busca una asistencia por id"
-            }).RequireAuthorization();
+            });/*.RequireAuthorization();*/
 
             group.MapPost("/", async (AsistenciumRequest asistencia, IAsistenciumServices asistenciumServices) =>
             {
@@ -45,7 +45,7 @@ namespace clases_asistenciaAPI.Endpoints
             {
                 Summary = "Crear Asistencia",
                 Description = "Crear una nueva asistencia"
-            }).RequireAuthorization();
+            });/*.RequireAuthorization();*/
 
             group.MapPut("/{id}", async (int id, AsistenciumRequest Asistencium, IAsistenciumServices asistenciumServices) =>
             {
@@ -59,7 +59,7 @@ namespace clases_asistenciaAPI.Endpoints
             {
                 Summary = "Modificar Asistencia",
                 Description = "Actualiza una asistencia existente"
-            }).RequireAuthorization();
+            });/*.RequireAuthorization();*/
 
             group.MapDelete("/{id}", async (int id, IAsistenciumServices asistenciumServices) =>
             {
@@ -72,7 +72,7 @@ namespace clases_asistenciaAPI.Endpoints
             {
                 Summary = "Eliminar Asistencia",
                 Description = "Eliminar una asistencia existente"
-            }).RequireAuthorization();
+            });/*.RequireAuthorization();*/
 
         }
     }
