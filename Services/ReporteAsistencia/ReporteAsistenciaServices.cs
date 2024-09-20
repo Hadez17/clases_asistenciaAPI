@@ -26,10 +26,10 @@ namespace clases_asistenciaAPI.Services.ReportesAsistencium
             return await _db.SaveChangesAsync();
         }
 
-        public Task<object?> GetReporteAsistencia(int id)
-        {
-            throw new NotImplementedException();
-        }
+        //public Task<object?> GetReporteAsistencia(int id)
+        //{
+        //    throw new NotImplementedException();
+        //}
 
         public async Task<List<ReportesAsistenciumResponse>> GetReportesAsistencia()
         {
@@ -47,10 +47,10 @@ namespace clases_asistenciaAPI.Services.ReportesAsistencium
             return reporteasistenciumResponse;
         }
 
-        public Task<object?> GetReportesAsistencium()
-        {
-            throw new NotImplementedException();
-        }
+        //public Task<object?> GetReportesAsistencium()
+        //{
+        //    throw new NotImplementedException();
+        //}
 
         public async Task<int> PostReportesAsistencium(ReportesAsistenciumRequest reportesAsistencium)
         {
