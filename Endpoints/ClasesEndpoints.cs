@@ -19,7 +19,7 @@ namespace clases_asistenciaAPI.Endpoints
             {
                 Summary = "Obtener Clases", 
                 Description = "Muestra una lista de todas las clases"
-            }).RequireAuthorization();
+            })/*.RequireAuthorization()*/;
 
             group.MapGet("/{id}", async (int id, IClaseServices claseServices) =>
             {
@@ -32,7 +32,7 @@ namespace clases_asistenciaAPI.Endpoints
             {
                 Summary = "Obtener Clase",
                 Description = "Busca una clase por id"
-            }).RequireAuthorization();
+            })/*.RequireAuthorization()*/;
 
             group.MapPost("/", async (ClaseRequest clase, IClaseServices claseServices) =>
             {
@@ -45,7 +45,7 @@ namespace clases_asistenciaAPI.Endpoints
             {
                 Summary = "Crear Clase",
                 Description = "Crear una nueva clase"
-            }).RequireAuthorization();
+            })/*.RequireAuthorization()*/;
 
             group.MapPut("/{id}", async (int id, ClaseRequest clase, IClaseServices claseServices) =>
             {
@@ -59,7 +59,7 @@ namespace clases_asistenciaAPI.Endpoints
             {
                 Summary = "Modificar Clase",
                 Description = "Actualiza una clase existente"
-            }).RequireAuthorization();
+            })/*.RequireAuthorization()*/;
 
             group.MapDelete("/{id}", async (int id, IClaseServices claseServices) =>
             {
@@ -72,7 +72,7 @@ namespace clases_asistenciaAPI.Endpoints
             {
                 Summary = "Eliminar Clase",
                 Description = "Eliminar una clase existente"
-            }).RequireAuthorization();
+            })/*.RequireAuthorization()*/;
 
         }
     }
