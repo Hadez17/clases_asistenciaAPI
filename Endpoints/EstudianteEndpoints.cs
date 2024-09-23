@@ -19,7 +19,7 @@ namespace clases_asistenciaAPI.Endpoints
                 {
                     Summary = "Obtener Estudiante",
                     Description = "Muestra una lista de todas los estudiantes"
-                })/*.RequireAuthorization()*/;
+                }).RequireAuthorization();
 
             group.MapGet("/{id}", async (int id, IEstudianteServices estudianteServices) =>
                 {
@@ -32,7 +32,7 @@ namespace clases_asistenciaAPI.Endpoints
                 {
                     Summary = "Obtener Estudiante",
                     Description = "Busca un estudiante por id"
-                })/*.RequireAuthorization()*/;
+                }).RequireAuthorization();
 
             group.MapPost("/", async (EstudianteRequest estudiante, IEstudianteServices estudianteServices) =>
                 {
@@ -45,7 +45,7 @@ namespace clases_asistenciaAPI.Endpoints
                 {
                     Summary = "Crear Estudiante",
                     Description = "Crear un nuevo estudiante"
-                })/*.RequireAuthorization()*/;
+                }).RequireAuthorization();
 
             group.MapPut("/{id}", async (int id, EstudianteRequest estudiante, IEstudianteServices estudianteServices) =>
                 {
@@ -59,7 +59,7 @@ namespace clases_asistenciaAPI.Endpoints
                 {
                     Summary = "Modificar Estudiante",
                     Description = "Actualiza un estudiante existente"
-                })/*.RequireAuthorization()*/;
+                }).RequireAuthorization();
 
             group.MapDelete("/{id}", async (int id, IEstudianteServices estudianteServices) =>
                 {
@@ -72,7 +72,7 @@ namespace clases_asistenciaAPI.Endpoints
                 {
                     Summary = "Eliminar Estudiante",
                     Description = "Eliminar un estudiante existente"
-                })/*.RequireAuthorization()*/;
+                }).RequireAuthorization();
 
         }
     }

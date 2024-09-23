@@ -104,7 +104,7 @@ namespace clases_asistenciaAPI.Endpoints
                             new Claim(ClaimTypes.Name, usuario.UsuarioNombre),
                             new Claim(ClaimTypes.Role, usuario.UsuarioRol)
                         }),
-                        Expires = DateTime.UtcNow.AddHours(1),
+                        Expires = DateTime.UtcNow.AddHours(5),
                         Issuer = issuer,
                         Audience = audience,
                         SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), 

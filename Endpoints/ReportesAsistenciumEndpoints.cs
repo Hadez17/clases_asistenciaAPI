@@ -19,7 +19,7 @@ namespace clases_asistenciaAPI.Endpoints
             {
                 Summary = "Obtener Reportes de Asistencia",
                 Description = "Muestra una lista para reportes de asistencias"
-            })/*.RequireAuthorization()*/;
+            }).RequireAuthorization();
 
             group.MapGet("/{id}", async (int id, IReportesAsistenciumServices reportesasistenciumServices) =>
             {
@@ -32,7 +32,7 @@ namespace clases_asistenciaAPI.Endpoints
             {
                 Summary = "Obtener Reportes de asistencias",
                 Description = "Busca un reporte de asistencia por id"
-            })/*.RequireAuthorization()*/;
+            }).RequireAuthorization();
 
             group.MapPost("/", async (ReportesAsistenciumRequest reportesasistencia, IReportesAsistenciumServices reportesasistenciumServices) =>
             {
@@ -45,7 +45,7 @@ namespace clases_asistenciaAPI.Endpoints
             {
                 Summary = "Crear un Reporte de Asistencia",
                 Description = "Crear un nuevo reporte de asistencia"
-            })/*.RequireAuthorization()*/;
+            }).RequireAuthorization();
 
             group.MapPut("/{id}", async (int id, ReportesAsistenciumRequest reportesasistencium, IReportesAsistenciumServices reportesasistenciumServices) =>
             {
@@ -59,7 +59,7 @@ namespace clases_asistenciaAPI.Endpoints
             {
                 Summary = "Modificar un reporte de Asistencia",
                 Description = "Actualiza un reporte de asistencia existente"
-            })/*.RequireAuthorization()*/;
+            }).RequireAuthorization();
 
             group.MapDelete("/{id}", async (int id, IReportesAsistenciumServices reportesasistenciumServices) =>
             {
@@ -72,7 +72,7 @@ namespace clases_asistenciaAPI.Endpoints
             {
                 Summary = "Eliminar un Reporte de Asistencia",
                 Description = "Eliminar un Reporte de asistencia existente"
-            })/*.RequireAuthorization()*/;
+            }).RequireAuthorization();
 
         }
     }
