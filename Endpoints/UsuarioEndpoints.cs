@@ -101,8 +101,8 @@ namespace clases_asistenciaAPI.Endpoints
 
                         Subject = new ClaimsIdentity(new[]
                         {
-                            new Claim(ClaimTypes.Name, usuario.UsuarioNombre),
-                            new Claim(ClaimTypes.Role, usuario.UsuarioRol)
+                            new Claim(ClaimTypes.Name, login.UsuarioNombre),
+                            new Claim(ClaimTypes.Role, login.UsuarioRol)
                         }),
                         Expires = DateTime.UtcNow.AddHours(5),
                         Issuer = issuer,
